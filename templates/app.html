@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Regrify</title>
+	</head>
+	<body>
+		<form method="POST">
+			<label for="duration">duration</label>
+			<input type="range" id="duration" name="duration" min="120000" max="600000" /> <br />
+
+			<label for="tempo">tempo</label>
+			<input type="range" id="tempo" name="tempo" min="60" max="180" /> <br />
+
+			<label for="danceability">danceability</label>
+			<input type="range" id="danceability" name="danceability" min="0" max="1" step="0.01" /> <br />
+
+			<label for="energy">energy</label>
+			<input type="range" id="energy" name="energy" min="0" max="1" step="0.01" /> <br />
+
+			<label for="loudness">loudness</label>
+			<input type="range" id="loudness" name="loudness" min="-20" max="0" /> <br />
+
+			<label for="speechiness">speechiness</label>
+			<input type="range" id="speechiness" name="speechiness" min="0" max="1" step="0.01" /> <br />
+
+			<label for="acousticness">acousticness</label>
+			<input type="range" id="acousticness" name="acousticness" min="0" max="1" step="0.01" /> <br />
+
+			<label for="instrumentalness">instrumentalness</label>
+			<input type="range" id="instrumentalness" name="instrumentalness" min="0" max="1" step="0.01" /> <br />
+
+			<label for="liveness">liveness</label>
+			<input type="range" id="liveness" name="liveness" min="0" max="1" step="0.01" /> <br />
+
+			<label for="valence">valence</label>
+			<input type="range" id="valence" name="valence" min="0" max="1" step="0.01" /> <br />
+
+			<p>explicit?</p>
+			<label for="explicit-yes">yes</label>
+			<input type="radio" id="explicit-yes" name="explicit" value="1" /> <br />
+			<label for="explicit-no">no</label>
+			<input type="radio" id="explicit-no" name="explicit" value="0" checked /> <br />
+
+			<label for="release_date">release_date</label>
+			<input type="range" id="release_date" name="release_date" min="1960" max="2020" /> <br />
+
+			<p>genre?</p>
+			<label for="genre-hiphop">hiphop</label>
+			<input type="radio" id="genre-hiphop" name="genre" value="genre_hiphop" checked /> <br />
+			<label for="genre-latin">latin</label>
+			<input type="radio" id="genre-latin" name="genre" value="genre_latin" /> <br />
+			<label for="genre-pop">pop</label>
+			<input type="radio" id="genre-pop" name="genre" value="genre_pop" /> <br />
+			<label for="genre-r&b">r&b</label>
+			<input type="radio" id="genre-r&b" name="genre" value="genre_r&b" /> <br />
+			<label for="genre-rap">rap</label>
+			<input type="radio" id="genre-rap" name="genre" value="genre_rap" /> <br />
+			<label for="genre-rock">rock</label>
+			<input type="radio" id="genre-rock" name="genre" value="genre_rock" /> <br />
+			<label for="genre-edm">edm</label>
+			<input type="radio" id="genre-edm" name="genre" value="genre_edm" /> <br />
+
+			<input type="submit" value="Submit" />
+		</form>
+
+		<p>{{ prediction }}</p>
+	</body>
+</html>
