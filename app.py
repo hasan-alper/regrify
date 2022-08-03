@@ -10,13 +10,11 @@ def predict():
     if request.method == "GET":
         return render_template("app.html")
     else:
-        model = load("model_assets/model.joblib")
-        prediction = model.predict(get_user_inputs())
-        print(prediction)
+        prediction = make_prediction()
         return render_template("app.html", prediction=prediction)
 
 
-def get_user_inputs():
+def make_prediction():
     input = pd.DataFrame(request.form.to_dict(flat=False))
     temp_input = input.drop(labels="genre", axis=1)
     temp_input = temp_input.astype(float)
@@ -24,7 +22,11 @@ def get_user_inputs():
     if input["genre"][0] != "genre_edm":
       genres[input["genre"]] = [1]
     final_input = pd.concat([temp_input, genres], axis=1)
-    return final_input
+    scaler = load("model_assets/scaler.joblib")
+    final_input = scaler.transform(final_input)
+    model = load("model_assets/model.joblib")
+    prediction = model.predict(final_input)
+    return prediction
 
 
 if __name__ == "__main__":
