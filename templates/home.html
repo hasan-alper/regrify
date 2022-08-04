@@ -8,46 +8,46 @@
 	</head>
 	<body>
 		<form method="POST">
-			<label for="duration">duration</label>
-			<input type="range" id="duration" name="duration" min="120000" max="600000" /> <br />
+			<label for="duration">duration: <span id="duration-value"></span> s</label> <br />
+			<input type="range" id="duration" name="duration" min="120" max="600" value="230" /> <br />
 
-			<label for="tempo">tempo</label>
-			<input type="range" id="tempo" name="tempo" min="60" max="180" /> <br />
+			<label for="tempo">tempo: <span id="tempo-value"></span> bpm</label> <br />
+			<input type="range" id="tempo" name="tempo" min="60" max="180" value="120" /> <br />
 
-			<label for="danceability">danceability</label>
-			<input type="range" id="danceability" name="danceability" min="0" max="1" step="0.01" /> <br />
+			<label for="danceability">danceability: <span id="danceability-value"></span></label> <br />
+			<input type="range" id="danceability" name="danceability" min="0" max="1" step="0.01" value="0.66" /> <br />
 
-			<label for="energy">energy</label>
-			<input type="range" id="energy" name="energy" min="0" max="1" step="0.01" /> <br />
+			<label for="energy">energy: <span id="energy-value"></span></label> <br />
+			<input type="range" id="energy" name="energy" min="0" max="1" step="0.01" value="0.68" /> <br />
 
-			<label for="loudness">loudness</label>
-			<input type="range" id="loudness" name="loudness" min="-20" max="0" /> <br />
+			<label for="loudness">loudness: <span id="loudness-value"></span> dB</label> <br />
+			<input type="range" id="loudness" name="loudness" min="-20" max="0" value="-7" /> <br />
 
-			<label for="speechiness">speechiness</label>
-			<input type="range" id="speechiness" name="speechiness" min="0" max="1" step="0.01" /> <br />
+			<label for="speechiness">speechiness: <span id="speechiness-value"></span></label> <br />
+			<input type="range" id="speechiness" name="speechiness" min="0" max="1" step="0.01" value="0.11" /> <br />
 
-			<label for="acousticness">acousticness</label>
-			<input type="range" id="acousticness" name="acousticness" min="0" max="1" step="0.01" /> <br />
+			<label for="acousticness">acousticness: <span id="acousticness-value"></span></label> <br />
+			<input type="range" id="acousticness" name="acousticness" min="0" max="1" step="0.01" value="0.17" /> <br />
 
-			<label for="instrumentalness">instrumentalness</label>
-			<input type="range" id="instrumentalness" name="instrumentalness" min="0" max="1" step="0.01" /> <br />
+			<label for="instrumentalness">instrumentalness: <span id="instrumentalness-value"></span></label> <br />
+			<input type="range" id="instrumentalness" name="instrumentalness" min="0" max="1" step="0.01" value="0.03" /> <br />
 
-			<label for="liveness">liveness</label>
-			<input type="range" id="liveness" name="liveness" min="0" max="1" step="0.01" /> <br />
+			<label for="liveness">liveness: <span id="liveness-value"></span></label> <br />
+			<input type="range" id="liveness" name="liveness" min="0" max="1" step="0.01" value="0.18" /> <br />
 
-			<label for="valence">valence</label>
-			<input type="range" id="valence" name="valence" min="0" max="1" step="0.01" /> <br />
+			<label for="valence">valence: <span id="valence-value"></span></label> <br />
+			<input type="range" id="valence" name="valence" min="0" max="1" step="0.01" value="0.53" /> <br />
 
-			<p>explicit?</p>
+			<p>explicit:</p>
 			<label for="explicit-yes">yes</label>
 			<input type="radio" id="explicit-yes" name="explicit" value="1" /> <br />
 			<label for="explicit-no">no</label>
 			<input type="radio" id="explicit-no" name="explicit" value="0" checked /> <br />
 
-			<label for="release_date">release_date</label>
-			<input type="range" id="release_date" name="release_date" min="1960" max="2020" /> <br />
+			<label for="release_date">release_date: <span id="release_date-value"></span></label> <br />
+			<input type="range" id="release_date" name="release_date" min="1960" max="2020" value="2007" /> <br />
 
-			<p>genre?</p>
+			<p>genre:</p>
 			<label for="genre-hiphop">hiphop</label>
 			<input type="radio" id="genre-hiphop" name="genre" value="hiphop" checked /> <br />
 			<label for="genre-latin">latin</label>
