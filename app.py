@@ -1,23 +1,24 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from joblib import load
 import pandas as pd
 
 app = Flask(__name__)
 
-
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def predict():
-    if request.method == "GET":
-        return render_template("app.html")
-    else:
-        return render_template("app.html", prediction=make_prediction())
+    return render_template("home.html")
+
+@app.route("/background_process")
+def background_process():
+    input = pd.DataFrame([request.args])
+    return make_prediction(input)
 
 
-def make_prediction():
-    input = pd.DataFrame(request.form.to_dict(flat=False))
+
+def make_prediction(input):
     model = load("model_assets/model.joblib")
     prediction = model.predict(input)
-    return prediction
+    return jsonify({"prediction":prediction[0]})
 
 
 if __name__ == "__main__":
