@@ -4,67 +4,138 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Regrify</title>
+		<title>Regrify - Predicting Spotify Popularity</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}"">
 	</head>
 	<body>
 		<form method="POST">
-			<label for="duration">duration: <span id="duration-value"></span> s</label> <br />
-			<input type="range" id="duration" name="duration" min="120" max="600" value="230" /> <br />
+			<section id="form-grid-1">
+				<label>Genre: <span id="genre-value"></span></label>
+				<div id="genre-buttons">
+					<input type="radio" id="genre-pop" name="genre" value="pop" />
+					<label for="genre-pop">
+						<img src="static/imgs/pop.png" />
+						<div>pop</div>
+					</label>
 
-			<label for="tempo">tempo: <span id="tempo-value"></span> bpm</label> <br />
-			<input type="range" id="tempo" name="tempo" min="60" max="180" value="120" /> <br />
+					<input type="radio" id="genre-rock" name="genre" value="rock" />
+					<label for="genre-rock">
+						<img src="static/imgs/rock.png" />
+						<div>rock</div>
+					</label>
 
-			<label for="danceability">danceability: <span id="danceability-value"></span></label> <br />
-			<input type="range" id="danceability" name="danceability" min="0" max="1" step="0.01" value="0.66" /> <br />
+					<input type="radio" id="genre-hiphop" name="genre" value="hiphop" checked />
+					<label for="genre-hiphop">
+						<img src="static/imgs/hiphop.png" />
+						<div>hiphop</div>
+					</label>
 
-			<label for="energy">energy: <span id="energy-value"></span></label> <br />
-			<input type="range" id="energy" name="energy" min="0" max="1" step="0.01" value="0.68" /> <br />
+					<input type="radio" id="genre-r&b" name="genre" value="r&b" />
+					<label for="genre-r&b">
+						<img src="static/imgs/r&b.png" />
+						<div>r&b</div>
+					</label>
 
-			<label for="loudness">loudness: <span id="loudness-value"></span> dB</label> <br />
-			<input type="range" id="loudness" name="loudness" min="-20" max="0" value="-7" /> <br />
+					<input type="radio" id="genre-rap" name="genre" value="rap" />
+					<label for="genre-rap">
+						<img src="static/imgs/rap.png" />
+						<div>rap</div>
+					</label>
 
-			<label for="speechiness">speechiness: <span id="speechiness-value"></span></label> <br />
-			<input type="range" id="speechiness" name="speechiness" min="0" max="1" step="0.01" value="0.11" /> <br />
+					<input type="radio" id="genre-latin" name="genre" value="latin" />
+					<label for="genre-latin">
+						<img src="static/imgs/latin.png" />
+						<div>latin</div>
+					</label>
 
-			<label for="acousticness">acousticness: <span id="acousticness-value"></span></label> <br />
-			<input type="range" id="acousticness" name="acousticness" min="0" max="1" step="0.01" value="0.17" /> <br />
+					<input type="radio" id="genre-edm" name="genre" value="edm" />
+					<label for="genre-edm">
+						<img src="static/imgs/edm.png" />
+						<div>edm</div>
+					</label>
+				</div>
 
-			<label for="instrumentalness">instrumentalness: <span id="instrumentalness-value"></span></label> <br />
-			<input type="range" id="instrumentalness" name="instrumentalness" min="0" max="1" step="0.01" value="0.03" /> <br />
+				<label for="duration">Duration: <span id="duration-value"></span> s</label>
+				<input type="range" id="duration" name="duration" min="120" max="600" value="230" />
 
-			<label for="liveness">liveness: <span id="liveness-value"></span></label> <br />
-			<input type="range" id="liveness" name="liveness" min="0" max="1" step="0.01" value="0.18" /> <br />
+				<label for="tempo">Tempo: <span id="tempo-value"></span> bpm</label>
+				<input type="range" id="tempo" name="tempo" min="60" max="180" value="120" />
 
-			<label for="valence">valence: <span id="valence-value"></span></label> <br />
-			<input type="range" id="valence" name="valence" min="0" max="1" step="0.01" value="0.53" /> <br />
+				<label for="loudness">Loudness: <span id="loudness-value"></span> dB</label>
+				<input type="range" id="loudness" name="loudness" min="-20" max="0" value="-7" />
 
-			<p>explicit:</p>
-			<label for="explicit-yes">yes</label>
-			<input type="radio" id="explicit-yes" name="explicit" value="1" /> <br />
-			<label for="explicit-no">no</label>
-			<input type="radio" id="explicit-no" name="explicit" value="0" checked /> <br />
+				<label for="release_date">Release Year: <span id="release_date-value"></span></label>
+				<input type="range" id="release_date" name="release_date" min="1960" max="2020" value="2007" />
 
-			<label for="release_date">release_date: <span id="release_date-value"></span></label> <br />
-			<input type="range" id="release_date" name="release_date" min="1960" max="2020" value="2007" /> <br />
+				<label>Explicit: <span id="explicit-value"></span></label>
+				<div id="explicit-buttons">
+					<input type="checkbox" name="explicit" id="explicit" />
+					<label for="explicit">
+						<img src="static/imgs/explicit.png" />
+						<div>explicit</div>
+					</label>
+				</div>
+			</section>
 
-			<p>genre:</p>
-			<label for="genre-hiphop">hiphop</label>
-			<input type="radio" id="genre-hiphop" name="genre" value="hiphop" checked /> <br />
-			<label for="genre-latin">latin</label>
-			<input type="radio" id="genre-latin" name="genre" value="latin" /> <br />
-			<label for="genre-pop">pop</label>
-			<input type="radio" id="genre-pop" name="genre" value="pop" /> <br />
-			<label for="genre-r&b">r&b</label>
-			<input type="radio" id="genre-r&b" name="genre" value="r&b" /> <br />
-			<label for="genre-rap">rap</label>
-			<input type="radio" id="genre-rap" name="genre" value="rap" /> <br />
-			<label for="genre-rock">rock</label>
-			<input type="radio" id="genre-rock" name="genre" value="rock" /> <br />
-			<label for="genre-edm">edm</label>
-			<input type="radio" id="genre-edm" name="genre" value="edm" /> <br />
+			<section id="form-grid-result">
+				<h1 id="title">Regrify</h1>
+				<p>This tool predicts Spotify popularity on a scale of 0 to 100. The popularity of a track is algorithmically calculated, and is a combination of how many plays a track has and how recent those plays are.</p>
+				<p>Use the options to predict the popularity of a song on Spotify.</p>
+				<h1 id="prediction"></h1>
+			</section>
+
+			<section id="form-grid-2">
+				<label for="danceability">Danceability: <span id="danceability-value"></span></label>
+				<input type="range" id="danceability" name="danceability" min="0" max="1" step="0.01" value="0.66" />
+
+				<label for="energy">Energy: <span id="energy-value"></span></label>
+				<input type="range" id="energy" name="energy" min="0" max="1" step="0.01" value="0.68" />
+
+				<label for="speechiness">Speechiness: <span id="speechiness-value"></span></label>
+				<input type="range" id="speechiness" name="speechiness" min="0" max="1" step="0.01" value="0.11" />
+
+				<label for="acousticness">Acousticness: <span id="acousticness-value"></span></label>
+				<input type="range" id="acousticness" name="acousticness" min="0" max="1" step="0.01" value="0.17" />
+
+				<label for="instrumentalness">Instrumentalness: <span id="instrumentalness-value"></span></label>
+				<input type="range" id="instrumentalness" name="instrumentalness" min="0" max="1" step="0.01" value="0.03" />
+
+				<label for="liveness">Liveness: <span id="liveness-value"></span></label>
+				<input type="range" id="liveness" name="liveness" min="0" max="1" step="0.01" value="0.18" />
+
+				<label for="valence">Valence: <span id="valence-value"></span></label>
+				<input type="range" id="valence" name="valence" min="0" max="1" step="0.01" value="0.53" />
+			</section>
 		</form>
 
-		<p id="prediction"></p>
+		<section id="grid-details">
+			<h1>Technical details</h1>
+			<p>
+				The model was trained on <a href="https://www.kaggle.com/datasets/naoh1092/spotify-genre-audio-features" target="_blank">Spotify audio features dataset</a> , using an Elastic Net regression model. It has an RMSE of 11.21.
+				The code is located <a href="https://github.com/hasan-alper/regrify" target="_blank">here</a> on GitHub. This project was made by Hasan Alper Aydın over a 1-week span in August 2022.
+			</p>
+			<h1>Feature Glossary</h1>
+			<p>Most of the definitions below can be attributed to the <a href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features" target="_blank">Spotify API Docs</a>.</p>
+			<p><strong>Genre:</strong> A category that identifies some pieces of music as belonging to a shared tradition or set of conventions.</p>
+			<p><strong>Duration:</strong> This is the length of the song in seconds.</p>
+			<p><strong>Tempo:</strong> This is the estimated speed of the song in beats per minute.</p>
+			<p><strong>Loudness:</strong> The overall loudness of a song in dB on a scale of -20 to 0.</p>
+			<p><strong>Release Year:</strong> A year on which a track is due to become available for the public to listen.</p>
+			<p><strong>Explicit:</strong> Indicates whether a track has curse words or language or art that is sexual, violent, or offensive in nature.</p>
+			<p><strong>Danceability:</strong> Measure of how danceable a song is from a scale of 0 to 1.</p>
+			<p><strong>Energy:</strong> A perceptual measure of intensity and activity from a scale of 0 to 1.</p>
+			<p>
+				<strong>Speechiness:</strong> Detects the presence of spoken words in a song on a scale of 0 to 1. A lower number (0-0.33) tends to indicate less speech, a moderate number (0.33-0.66) tends to indicate a mix of music and
+				spoken word like rap, and a higher number (0.66-1) tends to indicate something like a poetry album.
+			</p>
+			<p><strong>Acousticness:</strong> A confidence measure on if the song is acoustic on a scale of 0 to 1.</p>
+			<p><strong>Instrumentalness:</strong> A measure on a scale of 0 to 1 on whether a track has no vocals (excluding adlibs like ooh-ahh's). Values about 0.5 tend to indicate an instrumental track.</p>
+			<p><strong>Liveness:</strong> Detects the presence of an audience in a recording on a scale of 0 to 1. A value of 0.8 or above indicates a strong chance that the song is a live recording.</p>
+			<p>
+				<strong>Valence:</strong> A measure from 0 to 1 indicating the "musical positiveness" of a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more
+				negative (e.g. sad, depressed, angry).
+			</p>
+		</section>
 	</body>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
