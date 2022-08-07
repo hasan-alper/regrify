@@ -8,7 +8,7 @@ Play around with the model and make predictions using the [web app](https://regr
 
 This tool predicts Spotify popularity on a scale of 0 to 100. The popularity of a track is algorithmically calculated, and is a combination of how many plays a track has and how recent those plays are.
 
-The model was trained on [Spotify audio features dataset](https://www.kaggle.com/datasets/naoh1092/spotify-genre-audio-features), using an Elastic Net regression model. It has an RMSE of 11.21. This project was made over a 1-week span in August 2022.
+The model was trained on [Spotify audio features dataset](https://www.kaggle.com/datasets/naoh1092/spotify-genre-audio-features), using an Elastic Net regression model. It has an RMSE of 11.28. This project was made over a 1-week span in August 2022.
 
 ## Feature Glossary
 
